@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<div class="container">
+		<style>
+		.container {
+			box-shadow: 0 6px 8px blue, 0 1px 2px yellow;
+			background-color: #fff;
+			width: 400px;
+			height: auto;
+			margin: 30px auto;
+			padding: 20px 30px 20px 30px;
+		}
+		
+		h1 > span {
+			display: block;
+			font-weight: 400;
+			font-size: 0.9rem;
+			color: #999;
+			margin-top: 0;
+		}</style>
+		<h3>
+			CALCULATOR USING INPUT BOX
+			<span>
+				<br>CALCULATE TWO NUMBERS
+			</span>
+		</h3>
+		<div class="input-control">
+			<label for="num1">
+				Number 1: <input type="text" id="num1" placeholder="First number" autofocus>
+			</label>
+		</div>
+	
+		<div class="input-control">
+			<label for="num1">
+				Number 2: <input type="text" id="num2" placeholder="Second number">
+			</label>
+		</div>
+	
+		<div class="input-control controls">
+			<label for="method_add">
+					<input type="radio" name="method" id="method_add" value="add" checked>
+					ADDITION
+			</label>
+			<label for="method_sub">
+					<input type="radio" name="method" id="method_sub" value="sub">
+					SUBTRACTION
+			</label>
+			<label for="method_mul">
+					<input type="radio" name="method" id="method_mul" value="mul">
+					MULTIPLICATION
+			</label>
+			<label for="method_div">
+					<input type="radio" name="method" id="method_div" value="div">
+					DIVISION
+			</label>
+		</div>
+	
+		<div class="input-control button">
+			<button id="calculate">CALCULATE</button><position='center'>
+		</div>
+	</div>
+	<div class="container result">
+		Answer
+		<p class="answer">0</p>
+	</div>
+</head>
+<body>
+	<script>
+		var btn = document.querySelector('#calculate');
+		btn.addEventListener ('click', function () {
+
+			var num1 = Number ( document.querySelector('#num1').value ),
+					num2 = Number ( document.querySelector('#num2').value ),
+					rlt = document.querySelector('p.answer');
+			var method = document.querySelector('input[name="method"]:checked').value;
+			var answer = 0;
+			
+			if ( 'add' === method ) {
+				answer = num1 + num2;
+			} else if ( 'sub' === method ) {
+				answer = num1 - num2;
+			} else if ( 'mul' === method ) {
+				answer = num1 * num2;
+			} else if ( 'div' === method ) {
+				answer = num1 / num2;
+			}
+			rlt.innerHTML = answer;
+		});
+		</script>
+</body>
+</html>
